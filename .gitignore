@@ -1,3 +1,8 @@
+# custom
+built
+typings
+src/config/config.ts
+
 # Logs
 logs
 *.log
@@ -35,7 +40,3 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
-
-# built code
-built
-typings

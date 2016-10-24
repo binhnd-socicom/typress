@@ -19,9 +19,18 @@ gulp.task('develop', function () {
 });
 
 // Build all
-gulp.task('build', ['typescript', 'tslint'
+gulp.task('build', ['copy-assets', 'typescript', 'tslint'
  ] , function() {
 });
+
+// Copy nesesarry asserts to built folder
+gulp.task('copy-assets', function () {
+  gulp.src(
+    [ ],
+    { base: './' }
+  ).pipe(gulp.dest(targetPath));
+});
+
 
 // Start server and nodemon
 gulp.task('start', function(callback) {

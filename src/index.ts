@@ -1,9 +1,10 @@
 import express = require("express");
-import { WebApi } from "./application";
+import { App } from "./application";
+import Config from "./config/config";
 
-let port = 3000;
-let api = new WebApi(express(), port);
+let config = new Config();
+let app = new App(express(), config);
 
-api.run();
+app.run();
 
-console.info(`listening on ${port}`);
+console.info(`listening on ${config.port}`);
