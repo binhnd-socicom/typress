@@ -25,7 +25,6 @@ export class App {
      */
     private configureApp(app: express.Express) {
         // view engine setup
-        app.set("views", path.join(this.config.root, "views"));
         app.set("view engine", "ejs");
 
         // bodyParser

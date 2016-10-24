@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     shell = require('gulp-shell'),
     mocha = require('gulp-mocha'),
+    browserSync = require('browser-sync').create(),
     tslint = require('gulp-tslint');
 
 var targetPath = './built';
@@ -31,15 +32,14 @@ gulp.task('copy-assets', function () {
   ).pipe(gulp.dest(targetPath));
 });
 
-
 // Start server and nodemon
-gulp.task('start', function(callback) {
+gulp.task('nodemon', function(callback) {
   var called = false;
 
   return nodemon({
     script: './built/src/index.js',
-    ext: 'js html css ejs ico txt pdf json',
-    ignore: ['src', 'node_modules', 'gulpfile.js', 'package.json']
+    ext: 'js ejs html css ico txt pdf json',
+    ignore: ['src', 'node_modules', 'gulpfile.js', 'package.json', 'public', 'views']
   })
   .on('start', function() {
     if (!called) {
@@ -53,9 +53,23 @@ gulp.task('start', function(callback) {
   });
 });
 
+// Setup browser-sync
+gulp.task('start', ['nodemon'], ()=> {
+  browserSync.init(null, {
+    proxy: 'http://localhost:3000',
+    port: 7000
+  });
+});
+
+// Reload browser
+gulp.task('browser-reload', function () {
+  browserSync.reload();
+});
+
 // Watch for rebuild
 gulp.task('watch', function(){
-  gulp.watch('./src/**', ()=> { return runSequence('build'); });
+  gulp.watch('./src/**', ()=> { return runSequence('build', 'browser-reload'); });
+  gulp.watch('./views/**', ()=> { return runSequence('browser-reload'); });
 });
 
 // Build typescript task

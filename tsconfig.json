@@ -13,6 +13,7 @@
         "typings/",
         "bin/",
         "built/",
+        "views/",
         "gulpfile.js"
     ]
 }
