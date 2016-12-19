@@ -9,6 +9,7 @@ cp src/config/config.example.ts src/config/config.ts
 
 #### 2.Install related node_mosules & typings
 npm install
+
 typings install
 
 #### 3.Build 
