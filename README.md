@@ -2,14 +2,13 @@
 A Boilerplate for express+TypeScript development with Node.js. 
 
 ## Quickstart
-You need to install Node.js v6.x.x / typings
+You need to install Node.js v6.x.x
 
 #### 1. Copy config file
 cp src/config/config.example.ts src/config/config.ts
 
-#### 2.Install related node_mosules & typings
+#### 2.Install related node_mosules
 npm install
-typing install
 
 #### 3.Build 
 npm run build

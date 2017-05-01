@@ -1,5 +1,3 @@
-/// <reference path="../typings/index.d.ts" />
-
 import express = require("express");
 import rootRouter = require("./routes/rootRouter");
 import requestLogger = require("./middleware/requestLogger");
