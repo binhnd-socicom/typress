@@ -8,7 +8,8 @@
     "build": "node ./node_modules/gulp/bin/gulp build",
     "rebuild": "node ./node_modules/gulp/bin/gulp rebuild",
     "test": "node ./node_modules/mocha/bin/mocha ./built/test/**/*.js",
-    "dev": "node ./node_modules/gulp/bin/gulp develop"
+    "dev": "node ./node_modules/gulp/bin/gulp develop",
+    "postinstall": "cp src/config/config.example.ts src/config/config.ts && node ./node_modules/gulp/bin/gulp build"
   },
   "keywords": [],
   "author": "",
